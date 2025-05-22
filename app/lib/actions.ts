@@ -82,6 +82,10 @@ export async function updateInvoice(id: string, prevState: State, formData: Form
 
   // Return early if the form data is invalid
   if (!validatedFields.success) {
+    console.log({
+      errors: validatedFields.error.flatten().fieldErrors,
+      message: 'Missing Fields. Failed to Update Invoice.',
+    })
     return {
       errors: validatedFields.error.flatten().fieldErrors,
       message: 'Missing Fields. Failed to Update Invoice.',
